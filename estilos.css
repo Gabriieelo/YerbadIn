@@ -1,0 +1,63 @@
+.card-img-top { 
+    height: 300px; 
+    object-fit: contain; 
+    background-color: #fff; }
+
+
+    /* Nav */
+.custom-navbar {
+  background-color: #2e7d32 !important; /* verde mate */
+  padding: 0.8rem 1rem;
+  border-radius: 0 0 10px 10px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.custom-navbar .navbar-brand {
+  color: #fff !important;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.custom-navbar .nav-link {
+  color: #f5f5f5 !important;
+  margin: 0 10px;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.custom-navbar .nav-link:hover {
+  color: #ffeb3b !important; /* amarillo suave */
+  transform: scale(1.1);
+}
+
+.custom-navbar .nav-link.active {
+  color: #ffeb3b !important;
+}
+/* Card personalizada */
+.custom-card {
+  max-width: 1900px; /* más grande que la original */
+  margin: 60px auto; /* centrada */
+  border-radius: 15px;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+  overflow: hidden;
+}
+
+.custom-card .card-body {
+  padding: 1.5rem;
+}
+
+.custom-card .card-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #2e7d32; /* verde mate */
+}
+
+.custom-card .card-text {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* Imagen ajustada */
+.custom-card .custom-img {
+  height: 100%;
+  object-fit: cover;
+}
