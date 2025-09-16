@@ -7,6 +7,12 @@
   <title>Yerbadin</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="estilos.css">
+  <!-- Si preferís no tocar estilos.css, podés comentar/añadir este pequeño ajuste:
+       (no es obligatorio si ya usás utilidades de Bootstrap como puse abajo) -->
+  <style>
+    /* opcional: asegura que .card-body sea columna si alguna card no tiene clases */
+    .card .card-body { display: flex; flex-direction: column; }
+  </style>
 </head>
 
 <body>
@@ -18,42 +24,45 @@
   </h3>
 
   <nav class="navbar navbar-expand-lg custom-navbar mt-4">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">Inicio</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="yerbasdespaladas.html">Yerbas Despaladas</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="yerbasconpalo.html">Yerbas Con Palo</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="consejos.html">Consejos Materos</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="nosotros.html">Nosotros</a>
-        </li>
-      </ul>
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Inicio</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="yerbasdespaladas.html">Yerbas Despaladas</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="yerbasconpalo.html">Yerbas Con Palo</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="consejos.html">Consejos Materos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="nosotros.html">Nosotros</a>
+          </li>
+        </ul>
+      </div>
     </div>
-  </div>
-</nav>
-
+  </nav>
 
   <div class="container mt-5">
     <div class="row g-4">
+
       <div class="col-12 col-sm-6 col-md-4">
         <div class="card h-100">
           <img src="img/te-verde-jengibre.jpg" class="card-img-top" alt="Yerba Canarias Te Verde y jenbibre">
-          <div class="card-body">
+          <div class="card-body d-flex flex-column">
             <h5 class="card-title">Canarias Te Verde y Jengibre</h5>
             <p class="card-text">Yerba uruguaya con un sabor intenso, ideal para los que buscan fuerza en su mate.</p>
-            <a href="#" class="btn btn-primary">Comprar</a>
-            <a href="yerbasdespaladas.html" class="btn btn-secondary">Ver</a>
+
+            <div class="mt-auto d-flex gap-2">
+              <a href="#" class="btn btn-primary">Añadir al carrito</a>
+              <a href="TeVerdeYJenibre.html" class="btn btn-secondary">Ver</a>
+            </div>
           </div>
         </div>
       </div>
@@ -61,11 +70,14 @@
       <div class="col-12 col-sm-6 col-md-4">
         <div class="card h-100">
           <img src="img/canariaserena.jpg" class="card-img-top" alt="Yerba Canarias Serena">
-          <div class="card-body">
+          <div class="card-body d-flex flex-column">
             <h5 class="card-title">Canarias Serena</h5>
             <p class="card-text">Una yerba suave, con un equilibrio entre amargor y aroma.</p>
-            <a href="#" class="btn btn-primary">Comprar</a>
-            <a href="#" class="btn btn-secondary">Ver</a>
+
+            <div class="mt-auto d-flex gap-2">
+              <a href="#" class="btn btn-primary">Añadir al carrito</a>
+              <a href="CanariasSerena.html" class="btn btn-secondary">Ver</a>
+            </div>
           </div>
         </div>
       </div>
@@ -73,80 +85,109 @@
       <div class="col-12 col-sm-6 col-md-4">
         <div class="card h-100">
           <img src="img/canarias.jpg" class="card-img-top" alt="Yerba Canarias">
-          <div class="card-body">
+          <div class="card-body d-flex flex-column">
             <h5 class="card-title">Canarias</h5>
             <p class="card-text">Yerba clásica argentina, fuerte y de sabor tradicional.</p>
-            <a href="#" class="btn btn-primary">Comprar</a>
-            <a href="#" class="btn btn-secondary">Ver</a>
+
+            <div class="mt-auto d-flex gap-2">
+              <a href="#" class="btn btn-primary">Añadir al carrito</a>
+              <a href="CanariasTradicional.html" class="btn btn-secondary">Ver</a>
+            </div>
           </div>
         </div>
       </div>
+
       <div class="col-12 col-sm-6 col-md-4">
         <div class="card h-100">
-          <img src="img/reiverde_tradicional.jpg" class="card-img-top" alt="Yerba Canarias">
-          <div class="card-body">
+          <img src="img/reiverde_tradicional.jpg" class="card-img-top" alt="Rei verde tradicional">
+          <div class="card-body d-flex flex-column">
             <h5 class="card-title">Rei Verde Tradicional</h5>
             <p class="card-text">Yerba clásica argentina, fuerte y de sabor tradicional.</p>
-            <a href="#" class="btn btn-primary">Comprar</a>
-            <a href="#" class="btn btn-secondary">Ver</a>
+
+            <div class="mt-auto d-flex gap-2">
+              <a href="#" class="btn btn-primary">Añadir al carrito</a>
+              <a href="ReiVerdeTradiconal.html" class="btn btn-secondary">Ver</a>
+            </div>
           </div>
         </div>
       </div>
+
       <div class="col-12 col-sm-6 col-md-4">
         <div class="card h-100">
           <img src="img/reiverde_clasica.jpg" class="card-img-top" alt="Yerba Canarias">
-          <div class="card-body">
+          <div class="card-body d-flex flex-column">
             <h5 class="card-title">Rei Verde Clasica</h5>
             <p class="card-text">Yerba clásica argentina, fuerte y de sabor tradicional.</p>
-            <a href="#" class="btn btn-primary">Comprar</a>
-            <a href="#" class="btn btn-secondary">Ver</a>
+
+            <div class="mt-auto d-flex gap-2">
+              <a href="#" class="btn btn-primary">Añadir al carrito</a>
+              <a href="ReiVerdeClasica.html" class="btn btn-secondary">Ver</a>
+            </div>
           </div>
         </div>
       </div>
+
       <div class="col-12 col-sm-6 col-md-4">
         <div class="card h-100">
           <img src="img/reiverde_palo.jpg" class="card-img-top" alt="Yerba Canarias">
-          <div class="card-body">
+          <div class="card-body d-flex flex-column">
             <h5 class="card-title">Rei Verde con Palo</h5>
             <p class="card-text">Yerba clásica argentina, fuerte y de sabor tradicional.</p>
-            <a href="#" class="btn btn-primary">Comprar</a>
-            <a href="#" class="btn btn-secondary">Ver</a>
+
+            <div class="mt-auto d-flex gap-2">
+              <a href="#" class="btn btn-primary">Añadir al carrito</a>
+              <a href="ReiVerdePalo.html" class="btn btn-secondary">Ver</a>
+            </div>
           </div>
         </div>
       </div>
+
+      <!-- corregido: eliminé el espacio extra en el src -->
       <div class="col-12 col-sm-6 col-md-4">
         <div class="card h-100">
-          <img src="img/reiverde_especial.jpg" class="card-img-top" alt="Yerba Canarias">
-          <div class="card-body">
+          <img src="img/reiverde_premium.jpg" class="card-img-top" alt="Yerba Canarias">
+          <div class="card-body d-flex flex-column">
             <h5 class="card-title">Rei Verde Premium</h5>
             <p class="card-text">Yerba clásica argentina, fuerte y de sabor tradicional.</p>
-            <a href="#" class="btn btn-primary">Comprar</a>
-            <a href="#" class="btn btn-secondary">Ver</a>
+
+            <div class="mt-auto d-flex gap-2">
+              <a href="#" class="btn btn-primary">Añadir al carrito</a>
+              <a href="ReiVerdePremium.html" class="btn btn-secondary">Ver</a>
+            </div>
           </div>
         </div>
       </div>
+
       <div class="col-12 col-sm-6 col-md-4">
         <div class="card h-100">
-          <img src="img/matesur.jpg" class="card-img-top"   alt="Yerba Canarias">
-          <div class="card-body">
+          <img src="img/matesur.jpg" class="card-img-top" alt="Yerba Canarias">
+          <div class="card-body d-flex flex-column">
             <h5 class="card-title">Matesur Despelada</h5>
             <p class="card-text">Yerba clásica argentina, fuerte y de sabor tradicional.</p>
-            <a href="#" class="btn btn-primary">Comprar</a>
-            <a href="#" class="btn btn-secondary">Ver</a>
+
+            <div class="mt-auto d-flex gap-2">
+              <a href="#" class="btn btn-primary">Añadir al carrito</a>
+              <a href="MatesurDespalada.html" class="btn btn-secondary">Ver</a>
+            </div>
           </div>
         </div>
-      </div> 
+      </div>
+
       <div class="col-12 col-sm-6 col-md-4">
         <div class="card h-100">
           <img src="img/matesurtradicional.jpg" class="card-img-top" alt="Yerba Canarias">
-          <div class="card-body">
+          <div class="card-body d-flex flex-column">
             <h5 class="card-title">Matesur Tradicional</h5>
             <p class="card-text">Yerba clásica argentina, fuerte y de sabor tradicional.</p>
-            <a href="#" class="btn btn-primary">Comprar</a>
-            <a href="#" class="btn btn-secondary">Ver</a>
+
+            <div class="mt-auto d-flex gap-2">
+              <a href="#" class="btn btn-primary">Añadir al carrito</a>
+              <a href="MatesurTradicional.html" class="btn btn-secondary">Ver</a>
+            </div>
           </div>
         </div>
       </div>
+
     </div>
   </div>
 
