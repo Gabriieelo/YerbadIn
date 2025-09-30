@@ -8,7 +8,7 @@
 .custom-navbar {
   background-color: #2e7d32 !important;
   padding: 0.8rem 1rem 0.8rem 1rem; /* igual, pero sin margen arriba/abajo */
-  margin: 0; /* <--- evita separación con el bloque anterior */
+  margin: 0; /
   border-radius: 0 0 10px 10px;
   box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
@@ -58,27 +58,27 @@
   line-height: 1.5;
 }
 
-/* Imagen*/
+
 .custom-card .custom-img {
   height: 100%;
   object-fit: cover;
 }
 
-/* Centrar botones en cards */
+/* botones en cards */
 .card-buttons {
   text-align: center;
   margin-top: 10px;
 }
 
 .card-buttons .btn {
-  margin: 0 5px; /* espacio entre botones */
+  margin: 0 5px; /* espacio botones */
 }
 .titulo {
-  background-color: #2e7d32; /* fondo verde mate */
-  color: #ffffff;            /* texto blanco para contraste */
-  text-align: center;        /* centra el texto dentro de la barra */
-  padding: 1.0rem 0rem;   /* espacio arriba/abajo e izq/der */
-  margin: 0rem 0 1rem;       /* separaciones arriba/abajo */
+  background-color: #2e7d32; 
+  color: #ffffff;            
+  text-align: center;        
+  padding: 1.0rem 0rem;   
+  margin: 0rem 0 1rem;       
   font-size: 1.5rem;
   font-weight: 700;
   box-shadow: 0 3px 8px rgba(0,0,0,0.08);
@@ -174,7 +174,7 @@
   font-style: italic;
 }
 
-/* Responsive para móviles: texto más grande y card ancho completo */
+
 @media (max-width: 576px) {
   .card-nosotros {
     padding: 20px;
