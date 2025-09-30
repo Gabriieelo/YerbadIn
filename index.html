@@ -7,31 +7,23 @@
   <title>Yerbadin</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="estilos.css">
-  <!-- Si preferís no tocar estilos.css, podés comentar/añadir este pequeño ajuste:
-       (no es obligatorio si ya usás utilidades de Bootstrap como puse abajo) -->
-  <style>
-    /* opcional: asegura que .card-body sea columna si alguna card no tiene clases */
-    .card .card-body { display: flex; flex-direction: column; }
-  </style>
+
 </head>
 
 <body>
   <h1 class="titulo">Bienvenido a Yerbadin</h1>
-  <br>
-  <h3 class="text-center px-3">
+  <h3 class="subtitulo">
     Nuestro objetivo es dar nuestro punto de vista y comentar sobre las yerbas que se comercializan en Argentina
     para informar y que puedas saber qué yerba te podría llegar a gustar más
   </h3>
 
   <nav class="navbar navbar-expand-lg custom-navbar mt-4">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">Inicio</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Inicio</a>
+          </li>
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="yerbasdespaladas.html">Yerbas Despaladas</a>
           </li>
@@ -51,16 +43,15 @@
 
   <div class="container mt-5">
     <div class="row g-4">
-
       <div class="col-12 col-sm-6 col-md-4">
         <div class="card h-100">
           <img src="img/te-verde-jengibre.jpg" class="card-img-top" alt="Yerba Canarias Te Verde y jenbibre">
-          <div class="card-body d-flex flex-column">
+          <div class="card-body">
             <h5 class="card-title">Canarias Te Verde y Jengibre</h5>
-            <p class="card-text">Yerba uruguaya con un sabor intenso, ideal para los que buscan fuerza en su mate.</p>
-
-            <div class="mt-auto d-flex gap-2">
-              <a href="#" class="btn btn-primary">Añadir al carrito</a>
+            <p class="card-text">La Canarias Té Verde y Jengibre es una yerba mate uruguaya que combina la suavidad de
+              la yerba mate con las propiedades antioxidantes del té verde y el toque picante del jengibre.</p>
+            <div class="mt-auto d-flex justify-content-center gap-2">
+              <a href="#" class="btn btn-primary">Agregar al carrito</a>
               <a href="TeVerdeYJenibre.html" class="btn btn-secondary">Ver</a>
             </div>
           </div>
@@ -70,12 +61,12 @@
       <div class="col-12 col-sm-6 col-md-4">
         <div class="card h-100">
           <img src="img/canariaserena.jpg" class="card-img-top" alt="Yerba Canarias Serena">
-          <div class="card-body d-flex flex-column">
+          <div class="card-body">
             <h5 class="card-title">Canarias Serena</h5>
-            <p class="card-text">Una yerba suave, con un equilibrio entre amargor y aroma.</p>
-
-            <div class="mt-auto d-flex gap-2">
-              <a href="#" class="btn btn-primary">Añadir al carrito</a>
+            <p class="card-text">Canarias Serena es una yerba mate compuesta de Uruguay que mezcla hierbas como
+              toronjil, menta y tilo con la yerba clásica para un perfil suave y aromático.</p>
+            <div class="mt-auto d-flex justify-content-center gap-2">
+              <a href="#" class="btn btn-primary">Agregar al carrito</a>
               <a href="CanariasSerena.html" class="btn btn-secondary">Ver</a>
             </div>
           </div>
@@ -85,12 +76,12 @@
       <div class="col-12 col-sm-6 col-md-4">
         <div class="card h-100">
           <img src="img/canarias.jpg" class="card-img-top" alt="Yerba Canarias">
-          <div class="card-body d-flex flex-column">
+          <div class="card-body">
             <h5 class="card-title">Canarias</h5>
-            <p class="card-text">Yerba clásica argentina, fuerte y de sabor tradicional.</p>
-
-            <div class="mt-auto d-flex gap-2">
-              <a href="#" class="btn btn-primary">Añadir al carrito</a>
+            <p class="card-text">Canarias Tradicional es una yerba mate de molienda fina, prácticamente sin palo, con un
+              sabor fuerte, amargo e intenso que define su carácter clásico.</p>
+            <div class="mt-auto d-flex justify-content-center gap-2">
+              <a href="#" class="btn btn-primary">Agregar al carrito</a>
               <a href="CanariasTradicional.html" class="btn btn-secondary">Ver</a>
             </div>
           </div>
@@ -100,12 +91,12 @@
       <div class="col-12 col-sm-6 col-md-4">
         <div class="card h-100">
           <img src="img/reiverde_tradicional.jpg" class="card-img-top" alt="Rei verde tradicional">
-          <div class="card-body d-flex flex-column">
+          <div class="card-body">
             <h5 class="card-title">Rei Verde Tradicional</h5>
-            <p class="card-text">Yerba clásica argentina, fuerte y de sabor tradicional.</p>
-
-            <div class="mt-auto d-flex gap-2">
-              <a href="#" class="btn btn-primary">Añadir al carrito</a>
+            <p class="card-text">Rei Verde Tradicional es una yerba mate de sabor intenso y amargo, con predominancia de
+              hoja nativa y polvo, ideal para quienes disfrutan de un mate fuerte y duradero.</p>
+            <div class="mt-auto d-flex justify-content-center gap-2">
+              <a href="#" class="btn btn-primary">Agregar al carrito</a>
               <a href="ReiVerdeTradiconal.html" class="btn btn-secondary">Ver</a>
             </div>
           </div>
@@ -114,13 +105,13 @@
 
       <div class="col-12 col-sm-6 col-md-4">
         <div class="card h-100">
-          <img src="img/reiverde_clasica.jpg" class="card-img-top" alt="Yerba Canarias">
-          <div class="card-body d-flex flex-column">
+          <img src="img/reiverde_clasica.jpg" class="card-img-top" alt="Yerba Rei Verde Clásica">
+          <div class="card-body">
             <h5 class="card-title">Rei Verde Clasica</h5>
-            <p class="card-text">Yerba clásica argentina, fuerte y de sabor tradicional.</p>
-
-            <div class="mt-auto d-flex gap-2">
-              <a href="#" class="btn btn-primary">Añadir al carrito</a>
+            <p class="card-text">Rei Verde Clásica es una yerba mate de intensidad media, con molienda fina y equilibrio
+              entre hoja, polvo y poco palo; ideal para quienes buscan un sabor suave que dure.</p>
+            <div class="mt-auto d-flex justify-content-center gap-2">
+              <a href="#" class="btn btn-primary">Agregar al carrito</a>
               <a href="ReiVerdeClasica.html" class="btn btn-secondary">Ver</a>
             </div>
           </div>
@@ -129,29 +120,28 @@
 
       <div class="col-12 col-sm-6 col-md-4">
         <div class="card h-100">
-          <img src="img/reiverde_palo.jpg" class="card-img-top" alt="Yerba Canarias">
-          <div class="card-body d-flex flex-column">
+          <img src="img/reiverde_palo.jpg" class="card-img-top" alt="Yerba Rei Verde con Palo">
+          <div class="card-body">
             <h5 class="card-title">Rei Verde con Palo</h5>
-            <p class="card-text">Yerba clásica argentina, fuerte y de sabor tradicional.</p>
-
-            <div class="mt-auto d-flex gap-2">
-              <a href="#" class="btn btn-primary">Añadir al carrito</a>
+            <p class="card-text">Rei Verde con Palo es una yerba mate tipo argentino que incorpora aproximadamente un 20
+              % de palo, con hojas gruesas y estacionamiento prolongado, ideal para quienes disfrutan
+              de un mate con sabor robusto y cuerpo.</p>
+            <div class="mt-auto d-flex justify-content-center gap-2">
+              <a href="#" class="btn btn-primary">Agregar al carrito</a>
               <a href="ReiVerdePalo.html" class="btn btn-secondary">Ver</a>
             </div>
           </div>
         </div>
       </div>
 
-      
       <div class="col-12 col-sm-6 col-md-4">
         <div class="card h-100">
-          <img src="img/reiverde_premium.jpg" class="card-img-top" alt="Yerba Canarias">
-          <div class="card-body d-flex flex-column">
+          <img src="img/reiverde_premium.jpg" class="card-img-top" alt="Yerba Rei Verde Premium">
+          <div class="card-body">
             <h5 class="card-title">Rei Verde Premium</h5>
-            <p class="card-text">Yerba clásica argentina, fuerte y de sabor tradicional.</p>
-
-            <div class="mt-auto d-flex gap-2">
-              <a href="#" class="btn btn-primary">Añadir al carrito</a>
+            <p class="card-text">Rei Verde Premium es una yerba de hoja 100 % nativa, sin palo, estacionada más de 24 meses, que ofrece un sabor ahumado intenso y cuerpo cremoso</p>
+            <div class="mt-auto d-flex justify-content-center gap-2">
+              <a href="#" class="btn btn-primary">Agregar al carrito</a>
               <a href="ReiVerdePremium.html" class="btn btn-secondary">Ver</a>
             </div>
           </div>
@@ -160,13 +150,12 @@
 
       <div class="col-12 col-sm-6 col-md-4">
         <div class="card h-100">
-          <img src="img/matesur.jpg" class="card-img-top" alt="Yerba Canarias">
-          <div class="card-body d-flex flex-column">
+          <img src="img/matesur.jpg" class="card-img-top" alt="Yerba Matesur Despelada">
+          <div class="card-body">
             <h5 class="card-title">Matesur Despelada</h5>
-            <p class="card-text">Yerba clásica argentina, fuerte y de sabor tradicional.</p>
-
-            <div class="mt-auto d-flex gap-2">
-              <a href="#" class="btn btn-primary">Añadir al carrito</a>
+            <p class="card-text">Matesur Despalada es una yerba mate sin palo, de molienda fina estilo uruguaya, con sabor intenso y de larga duración</p>
+            <div class="mt-auto d-flex justify-content-center gap-2">
+              <a href="#" class="btn btn-primary">Agregar al carrito</a>
               <a href="MatesurDespalada.html" class="btn btn-secondary">Ver</a>
             </div>
           </div>
@@ -175,13 +164,13 @@
 
       <div class="col-12 col-sm-6 col-md-4">
         <div class="card h-100">
-          <img src="img/matesurtradicional.jpg" class="card-img-top" alt="Yerba Canarias">
-          <div class="card-body d-flex flex-column">
+          <img src="img/matesurtradicional.jpg" class="card-img-top" alt="Yerba Matesur Tradicional">
+          <div class="card-body">
             <h5 class="card-title">Matesur Tradicional</h5>
-            <p class="card-text">Yerba clásica argentina, fuerte y de sabor tradicional.</p>
-
-            <div class="mt-auto d-flex gap-2">
-              <a href="#" class="btn btn-primary">Añadir al carrito</a>
+            <p class="card-text">Matesur Tradicional Con Palo ofrece un sabor clásico, con la calidez del palo que aporta suavidad y 
+              duración al mate, ideal para quienes prefieren una experiencia tradicional bien argentina.</p>
+            <div class="mt-auto d-flex justify-content-center gap-2">
+              <a href="#" class="btn btn-primary">Agregar al carrito</a>
               <a href="MatesurTradicional.html" class="btn btn-secondary">Ver</a>
             </div>
           </div>
@@ -191,8 +180,9 @@
     </div>
   </div>
 
+
   <!-- Bootstrap -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
-</html>
+</html> 

@@ -6,11 +6,13 @@
 
     /* Nav */
 .custom-navbar {
-  background-color: #2e7d32 !important; /* verde mate */
-  padding: 0.8rem 1rem;
+  background-color: #2e7d32 !important;
+  padding: 0.8rem 1rem 0.8rem 1rem; /* igual, pero sin margen arriba/abajo */
+  margin: 0; /* <--- evita separación con el bloque anterior */
   border-radius: 0 0 10px 10px;
   box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
+
 
 .custom-navbar .navbar-brand {
   color: #fff !important;
@@ -25,17 +27,17 @@
 }
 
 .custom-navbar .nav-link:hover {
-  color: #ffeb3b !important; /* amarillo suave */
+  color: #f5f5f5 !important;
   transform: scale(1.1);
 }
 
 .custom-navbar .nav-link.active {
-  color: #ffeb3b !important;
+  color: #f5f5f5 !important;
 }
-/* Card personalizada */
+/* Card*/
 .custom-card {
-  max-width: 1900px; /* más grande que la original */
-  margin: 60px auto; /* centrada */
+  max-width: 1900px; 
+  margin: 60px auto; /* centrad */
   border-radius: 15px;
   box-shadow: 0 6px 12px rgba(0,0,0,0.1);
   overflow: hidden;
@@ -48,7 +50,7 @@
 .custom-card .card-title {
   font-size: 1.5rem;
   font-weight: bold;
-  color: #2e7d32; /* verde mate */
+  color: #2e7d32;
 }
 
 .custom-card .card-text {
@@ -56,8 +58,131 @@
   line-height: 1.5;
 }
 
-/* Imagen ajustada */
+/* Imagen*/
 .custom-card .custom-img {
   height: 100%;
   object-fit: cover;
+}
+
+/* Centrar botones en cards */
+.card-buttons {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.card-buttons .btn {
+  margin: 0 5px; /* espacio entre botones */
+}
+.titulo {
+  background-color: #2e7d32; /* fondo verde mate */
+  color: #ffffff;            /* texto blanco para contraste */
+  text-align: center;        /* centra el texto dentro de la barra */
+  padding: 1.0rem 0rem;   /* espacio arriba/abajo e izq/der */
+  margin: 0rem 0 1rem;       /* separaciones arriba/abajo */
+  font-size: 1.5rem;
+  font-weight: 700;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+}
+.subtitulo {
+  background-color: #2e7d32;
+  color: #ffffff;
+  text-align: center;
+  padding: 1rem 0;
+  margin: 0; 
+  font-size: 1.3rem;
+  font-weight: 500;
+  line-height: 1.6;
+}
+.subtitulo + .custom-navbar {
+  margin-top: 0 !important;
+}
+.titulo-consejos {
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+.card-matero {
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  background-color: #fdfdfd;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  padding: 10px;
+}
+
+.card-matero:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.card-body-matero {
+  padding: 20px;
+}
+
+.card-title-matero {
+  font-size: 1.2rem;
+  color: #27ae60;
+  margin-bottom: 12px;
+}
+
+.card-text-matero {
+  flex-grow: 1;
+  font-size: 0.95rem;
+  color: #444;
+  line-height: 1.5;
+}
+
+.card-tip {
+  font-size: 0.85rem;
+  color: #888;
+  margin-top: auto;
+  font-style: italic;
+}
+
+.titulo-nosotros {
+  font-weight: bold;
+  color: #2c3e50;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.card-nosotros {
+  background-color: #fef9f2;
+  border-radius: 12px;
+  border: 1px solid #e0dcd0;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+  padding: 30px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  text-align: center;
+}
+
+.card-nosotros:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.18);
+}
+
+.texto-nosotros {
+  font-size: 1.2rem;
+  line-height: 1.7;
+  color: #444;
+  margin-bottom: 1rem;
+}
+
+.texto-nosotros-tip {
+  font-size: 1rem;
+  color: #888;
+  font-style: italic;
+}
+
+/* Responsive para móviles: texto más grande y card ancho completo */
+@media (max-width: 576px) {
+  .card-nosotros {
+    padding: 20px;
+  }
+  .texto-nosotros {
+    font-size: 1.3rem;
+  }
+  .texto-nosotros-tip {
+    font-size: 1.05rem;
+  }
 }
