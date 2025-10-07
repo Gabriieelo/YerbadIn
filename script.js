@@ -10,9 +10,9 @@ document.addEventListener("DOMContentLoaded", () => {
       const texto = card.querySelector(".card-text").textContent.toLowerCase();
 
       if (titulo.includes(filtro) || texto.includes(filtro)) {
-        card.parentElement.style.display = "block"; // mostrar columna
+        card.parentElement.style.display = "block"; 
       } else {
-        card.parentElement.style.display = "none"; // ocultar columna
+        card.parentElement.style.display = "none"; 
       }
     });
   });

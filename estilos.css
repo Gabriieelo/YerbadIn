@@ -8,7 +8,7 @@
 .custom-navbar {
   background-color: #2e7d32 !important;
   padding: 0.8rem 1rem 0.8rem 1rem; /* igual, pero sin margen arriba/abajo */
-  margin: 0; /
+  margin: 0; 
   border-radius: 0 0 10px 10px;
   box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }

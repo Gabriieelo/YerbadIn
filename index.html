@@ -1,202 +1,88 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Yerbadin</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
-  <link rel="stylesheet" href="estilos.css">
-  <script src="script.js"></script>
-
+  <title>Yerbadin Registro / Ingreso</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="./estilos.css">
 </head>
-
 <body>
-  <h1 class="titulo">Bienvenido a Yerbadin</h1>
-  <h3 class="subtitulo">
-    Nuestro objetivo es dar nuestro punto de vista y comentar sobre las yerbas que se comercializan en Argentina
-    para informar y que puedas saber qué yerba te podría llegar a gustar más
-  </h3>
 
+  <!-- Encabezado -->
+  <header class="bg-success text-white text-center py-5">
+    <h1 class="display-4">Bienvenido a Yerbadin ☕💻</h1>
+    <p class="lead">Unimos el código y el mate en una experiencia única</p>
+  </header>
 
-  <nav class="navbar navbar-expand-lg custom-navbar mt-4 bg-success navbar-dark">
-    <div class="container-fluid">
+  <!-- Formulario -->
+  <section class="container my-5">
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-8 col-lg-6">
+        <div class="card shadow-lg border-0">
+          <div class="card-body p-4">
 
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+            <!-- Pestañas -->
+            <ul class="nav nav-tabs mb-4" id="authTabs" role="tablist">
+              <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="register-tab" data-bs-toggle="tab" data-bs-target="#register" type="button" role="tab">Registrarse</button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" id="login-tab" data-bs-toggle="tab" data-bs-target="#login" type="button" role="tab">Iniciar Sesión</button>
+              </li>
+            </ul>
 
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav me-auto">
-          <li class="nav-item"><a class="nav-link active" href="index.html">Inicio</a></li>
-          <li class="nav-item"><a class="nav-link" href="yerbasdespaladas.html">Yerbas Despaladas</a></li>
-          <li class="nav-item"><a class="nav-link" href="yerbasconpalo.html">Yerbas Con Palo</a></li>
-          <li class="nav-item"><a class="nav-link" href="consejos.html">Consejos Materos</a></li>
-          <li class="nav-item"><a class="nav-link" href="nosotros.html">Nosotros</a></li>
-        </ul>
+            <!-- Contenido de pestañas -->
+            <div class="tab-content" id="authTabsContent">
 
+              <!-- Registro -->
+              <div class="tab-pane fade show active" id="register" role="tabpanel">
+                <h2 class="text-center mb-4">Crear Cuenta</h2>
+                <form action="index.html" method="get">
+                  <div class="mb-3">
+                    <label for="nombre" class="form-label">Nombre</label>
+                    <input type="text" class="form-control" id="nombre" placeholder="Tu nombre" required>
+                  </div>
+                  <div class="mb-3">
+                    <label for="emailRegistro" class="form-label">Correo electrónico</label>
+                    <input type="email" class="form-control" id="emailRegistro" placeholder="ejemplo@mail.com" required>
+                  </div>
+                  <div class="mb-3">
+                    <label for="passwordRegistro" class="form-label">Contraseña</label>
+                    <input type="password" class="form-control" id="passwordRegistro" placeholder="********" required>
+                  </div>
+                  <div class="d-grid">
+                    <button type="submit" class="btn btn-success">Registrarse</button>
+                  </div>
+                </form>
+              </div>
 
-        <form class="d-flex mx-auto" style="width: 40%;" role="search">
-          <input id="buscador" class="form-control" type="search" placeholder="Buscar yerba..." aria-label="Buscar">
-        </form>
-        <div class="ms-3">
-          <a href="carrito.html" class="text-white fs-4">
-            <i class="bi bi-basket-fill"></i>
-          </a>
+              <!-- Iniciar Sesión -->
+              <div class="tab-pane fade" id="login" role="tabpanel">
+                <h2 class="text-center mb-4">Iniciar Sesión</h2>
+                <form action="index.html" method="get">
+                  <div class="mb-3">
+                    <label for="emailLogin" class="form-label">Correo electrónico</label>
+                    <input type="email" class="form-control" id="emailLogin" placeholder="ejemplo@mail.com" required>
+                  </div>
+                  <div class="mb-3">
+                    <label for="passwordLogin" class="form-label">Contraseña</label>
+                    <input type="password" class="form-control" id="passwordLogin" placeholder="********" required>
+                  </div>
+                  <div class="d-grid">
+                    <button type="submit" class="btn btn-success">Ingresar</button>
+                  </div>
+                </form>
+              </div>
+
+            </div>
+          </div>
         </div>
       </div>
     </div>
-  </nav>
-
-
-
-
-  <div class="container mt-5">
-    <div class="row g-4">
-      <div class="col-12 col-sm-6 col-md-4">
-        <div class="card h-100">
-          <img src="img/te-verde-jengibre.jpg" class="card-img-top" alt="Yerba Canarias Te Verde y jenbibre">
-          <div class="card-body">
-            <h5 class="card-title">Canarias Te Verde y Jengibre</h5>
-            <p class="card-text">La Canarias Té Verde y Jengibre es una yerba mate uruguaya que combina la suavidad de
-              la yerba mate con las propiedades antioxidantes del té verde y el toque picante del jengibre.</p>
-            <div class="mt-auto d-flex justify-content-center gap-2">
-              <a href="#" class="btn btn-primary">Agregar a favoritos</a>
-              <a href="TeVerdeYJenibre.html" class="btn btn-secondary">Ver</a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-12 col-sm-6 col-md-4">
-        <div class="card h-100">
-          <img src="img/canariaserena.jpg" class="card-img-top" alt="Yerba Canarias Serena">
-          <div class="card-body">
-            <h5 class="card-title">Canarias Serena</h5>
-            <p class="card-text">Canarias Serena es una yerba mate compuesta de Uruguay que mezcla hierbas como
-              toronjil, menta y tilo con la yerba clásica para un perfil suave y aromático.</p>
-            <div class="mt-auto d-flex justify-content-center gap-2">
-              <a href="#" class="btn btn-primary">Agregar a favoritos</a>
-              <a href="CanariasSerena.html" class="btn btn-secondary">Ver</a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-12 col-sm-6 col-md-4">
-        <div class="card h-100">
-          <img src="img/canarias.jpg" class="card-img-top" alt="Yerba Canarias">
-          <div class="card-body">
-            <h5 class="card-title">Canarias</h5>
-            <p class="card-text">Canarias Tradicional es una yerba mate de molienda fina, prácticamente sin palo, con un
-              sabor fuerte, amargo e intenso que define su carácter clásico.</p>
-            <div class="mt-auto d-flex justify-content-center gap-2">
-              <a href="#" class="btn btn-primary">Agregar a favoritos</a>
-              <a href="CanariasTradicional.html" class="btn btn-secondary">Ver</a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-12 col-sm-6 col-md-4">
-        <div class="card h-100">
-          <img src="img/reiverde_tradicional.jpg" class="card-img-top" alt="Rei verde tradicional">
-          <div class="card-body">
-            <h5 class="card-title">Rei Verde Tradicional</h5>
-            <p class="card-text">Rei Verde Tradicional es una yerba mate de sabor intenso y amargo, con predominancia de
-              hoja nativa y polvo, ideal para quienes disfrutan de un mate fuerte y duradero.</p>
-            <div class="mt-auto d-flex justify-content-center gap-2">
-              <a href="#" class="btn btn-primary">Agregar a favoritos</a>
-              <a href="ReiVerdeTradiconal.html" class="btn btn-secondary">Ver</a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-12 col-sm-6 col-md-4">
-        <div class="card h-100">
-          <img src="img/reiverde_clasica.jpg" class="card-img-top" alt="Yerba Rei Verde Clásica">
-          <div class="card-body">
-            <h5 class="card-title">Rei Verde Clasica</h5>
-            <p class="card-text">Rei Verde Clásica es una yerba mate de intensidad media, con molienda fina y equilibrio
-              entre hoja, polvo y poco palo; ideal para quienes buscan un sabor suave que dure.</p>
-            <div class="mt-auto d-flex justify-content-center gap-2">
-              <a href="#" class="btn btn-primary">Agregar a favoritos</a>
-              <a href="ReiVerdeClasica.html" class="btn btn-secondary">Ver</a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-12 col-sm-6 col-md-4">
-        <div class="card h-100">
-          <img src="img/reiverde_palo.jpg" class="card-img-top" alt="Yerba Rei Verde con Palo">
-          <div class="card-body">
-            <h5 class="card-title">Rei Verde con Palo</h5>
-            <p class="card-text">Rei Verde con Palo es una yerba mate tipo argentino que incorpora aproximadamente un 20
-              % de palo, con hojas gruesas y estacionamiento prolongado, ideal para quienes disfrutan
-              de un mate con sabor robusto y cuerpo.</p>
-            <div class="mt-auto d-flex justify-content-center gap-2">
-              <a href="#" class="btn btn-primary">Agregar a favoritos</a>
-              <a href="ReiVerdePalo.html" class="btn btn-secondary">Ver</a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-12 col-sm-6 col-md-4">
-        <div class="card h-100">
-          <img src="img/reiverde_premium.jpg" class="card-img-top" alt="Yerba Rei Verde Premium">
-          <div class="card-body">
-            <h5 class="card-title">Rei Verde Premium</h5>
-            <p class="card-text">Rei Verde Premium es una yerba de hoja 100 % nativa, sin palo, estacionada más de 24
-              meses, que ofrece un sabor ahumado intenso y cuerpo cremoso</p>
-            <div class="mt-auto d-flex justify-content-center gap-2">
-              <a href="#" class="btn btn-primary">Agregar a favoritos</a>
-              <a href="ReiVerdePremium.html" class="btn btn-secondary">Ver</a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-12 col-sm-6 col-md-4">
-        <div class="card h-100">
-          <img src="img/matesur.jpg" class="card-img-top" alt="Yerba Matesur Despelada">
-          <div class="card-body">
-            <h5 class="card-title">Matesur Despelada</h5>
-            <p class="card-text">Matesur Despalada es una yerba mate sin palo, de molienda fina estilo uruguaya, con
-              sabor intenso y de larga duración</p>
-            <div class="mt-auto d-flex justify-content-center gap-2">
-              <a href="#" class="btn btn-primary">Agregar a favoritos</a>
-              <a href="MatesurDespalada.html" class="btn btn-secondary">Ver</a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-12 col-sm-6 col-md-4">
-        <div class="card h-100">
-          <img src="img/matesurtradicional.jpg" class="card-img-top" alt="Yerba Matesur Tradicional">
-          <div class="card-body">
-            <h5 class="card-title">Matesur Tradicional</h5>
-            <p class="card-text">Matesur Tradicional Con Palo ofrece un sabor clásico, con la calidez del palo que
-              aporta suavidad y
-              duración al mate, ideal para quienes prefieren una experiencia tradicional bien argentina.</p>
-            <div class="mt-auto d-flex justify-content-center gap-2">
-              <a href="#" class="btn btn-primary">Agregar a favoritos</a>
-              <a href="MatesurTradicional.html" class="btn btn-secondary">Ver</a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-
+  </section>
 
   <!-- Bootstrap -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
-
 </html>
