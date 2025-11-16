@@ -4,51 +4,60 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Yerbas Despaladas</title>
+  <title>Yerbadin</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
   <link rel="stylesheet" href="estilos.css">
+  <script src="app.js" defer></script>
+  <script src="buscador.js" defer></script> 
 </head>
 
-<body>
-  <h1 class="titulo">Yerbadin</h1>
-  <br>
-  <h3 class="subtitulo">
-    Nuestro objetivo es dar nuestro punto de vista y comentar sobre las yerbas que se comercializan en Argentina
-    para informar y que puedas saber qué yerba te podría llegar a gustar más
-  </h3>
+<body class="bg-light">
 
-<nav class="navbar navbar-expand-lg custom-navbar mt-4 bg-success navbar-dark">
-        <div class="container-fluid">
+ 
+  <header class="bg-success text-white text-center py-4 shadow-sm">
+    <div class="container">
+      <h1 class="fw-bold">Yerbas Despaladas</h1>
+      <h5 class="mt-3 mx-auto" style="max-width: 900px;">
+        Nuestro objetivo es dar nuestro punto de vista y comentar sobre las yerbas que se comercializan en Argentina
+        para informar y que puedas saber qué yerba te podría llegar a gustar más.
+      </h5>
+    </div>
+  </header>
 
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+ 
+  <nav class="navbar navbar-expand-lg navbar-dark bg-success shadow-sm">
+    <div class="container">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav me-auto">
-                    <li class="nav-item"><a class="nav-link active" href="inicio.html">Inicio</a></li>
-                    <li class="nav-item"><a class="nav-link" href="yerbasdespaladas.html">Yerbas Despaladas</a></li>
-                    <li class="nav-item"><a class="nav-link" href="yerbasconpalo.html">Yerbas Con Palo</a></li>
-                    <li class="nav-item"><a class="nav-link" href="consejos.html">Consejos Materos</a></li>
-                    <li class="nav-item"><a class="nav-link" href="nosotros.html">Nosotros</a></li>
-                </ul>
-                <form class="d-flex mx-auto" style="width: 40%;" role="search">
-                    <input id="buscador" class="form-control" type="search" placeholder="Buscar yerba..."
-                        aria-label="Buscar">
-                </form>
-                <div class="ms-3">
-                    <a href="carrito.html" class="text-white fs-4">
-                        <i class="bi bi-basket-fill"></i>
-                    </a>
-                </div>
-            </div>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item"><a class="nav-link" href="inicio.html">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link active" href="yerbasdespaladas.html">Yerbas Despaladas</a></li>
+          <li class="nav-item"><a class="nav-link" href="yerbasconpalo.html">Yerbas Con Palo</a></li>
+          <li class="nav-item"><a class="nav-link" href="consejos.html">Consejos Materos</a></li>
+          <li class="nav-item"><a class="nav-link" href="nosotros.html">Nosotros</a></li>
+        </ul>
+
+        <form class="d-flex mx-auto" style="width: 40%;" role="search">
+          <input id="buscador" class="form-control" type="search" placeholder="Buscar yerba..." aria-label="Buscar">
+        </form>
+
+        <div class="ms-3">
+          <a href="carrito.html" class="text-white fs-4">
+            <i class="bi bi-basket-fill"></i>
+          </a>
         </div>
-    </nav>
+      </div>
+    </div>
+  </nav>
 
-  <div class="container mt-5">
-    <div class="row g-4">
-      <div class="col-12 col-sm-6 col-md-4">
+  <!-- Contenido principal -->
+  <main class="container my-5">
+    <div class="row g-4" id="productos">
+        <div class="col-12 col-sm-6 col-md-4">
         <div class="card h-100">
           <img src="img/te-verde-jengibre.jpg" class="card-img-top" alt="Yerba Canarias Te Verde y jenbibre">
           <div class="card-body">
@@ -59,7 +68,8 @@
           </div>
         </div>
       </div>
-    <div class="col-12 col-sm-6 col-md-4">
+
+      <div class="col-12 col-sm-6 col-md-4">
         <div class="card h-100">
           <img src="img/canariaserena.jpg" class="card-img-top" alt="Yerba Canarias Serena">
           <div class="card-body">
@@ -70,6 +80,7 @@
           </div>
         </div>
       </div>
+
       <div class="col-12 col-sm-6 col-md-4">
         <div class="card h-100">
           <img src="img/canarias.jpg" class="card-img-top" alt="Yerba Canarias">
@@ -81,20 +92,22 @@
           </div>
         </div>
       </div>
+
       <div class="col-12 col-sm-6 col-md-4">
         <div class="card h-100">
-          <img src="img/reiverde_tradicional.jpg" class="card-img-top" alt="Yerba Canarias">
+          <img src="img/reiverde_tradicional.jpg" class="card-img-top" alt="Yerba Rei Verde Tradicional">
           <div class="card-body">
             <h5 class="card-title">Rei Verde Tradicional</h5>
             <p class="card-text">Yerba clásica argentina, fuerte y de sabor tradicional.</p>
             <a href="#" class="btn btn-primary">Agregar a favoritos</a>
-            <a href="ReiVerdeTradiconal.html" class="btn btn-secondary">Ver</a>
+            <a href="ReiVerdeTradicional.html" class="btn btn-secondary">Ver</a>
           </div>
         </div>
       </div>
+
       <div class="col-12 col-sm-6 col-md-4">
         <div class="card h-100">
-          <img src="img/reiverde_clasica.jpg" class="card-img-top" alt="Yerba Canarias">
+          <img src="img/reiverde_clasica.jpg" class="card-img-top" alt="Yerba Rei Verde Clasica">
           <div class="card-body">
             <h5 class="card-title">Rei Verde Clasica</h5>
             <p class="card-text">Yerba clásica argentina, fuerte y de sabor tradicional.</p>
@@ -103,9 +116,10 @@
           </div>
         </div>
       </div>
+
       <div class="col-12 col-sm-6 col-md-4">
         <div class="card h-100">
-          <img src="img/reiverde_premium.jpg " class="card-img-top" alt="Yerba Canarias">
+          <img src="img/reiverde_premium.jpg" class="card-img-top" alt="Yerba Rei Verde Premium">
           <div class="card-body">
             <h5 class="card-title">Rei Verde Premium</h5>
             <p class="card-text">Yerba clásica argentina, fuerte y de sabor tradicional.</p>
@@ -114,16 +128,22 @@
           </div>
         </div>
       </div>
+
       <div class="col-12 col-sm-6 col-md-4">
         <div class="card h-100">
-          <img src="img/matesur.jpg" class="card-img-top"   alt="Yerba Canarias">
+          <img src="img/matesur.jpg" class="card-img-top" alt="Yerba Matesur Despalada">
           <div class="card-body">
-            <h5 class="card-title">Matesur Despelada</h5>
+            <h5 class="card-title">Matesur Despalada</h5>
             <p class="card-text">Yerba clásica argentina, fuerte y de sabor tradicional.</p>
             <a href="#" class="btn btn-primary">Agregar a favoritos</a>
             <a href="MatesurDespalada.html" class="btn btn-secondary">Ver</a>
           </div>
         </div>
-      </div>   
+      </div>
     </div>
-  </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
