@@ -12,7 +12,6 @@
   <script src="buscador.js" defer></script> 
 </head>
 
- 
 <body class="bg-light">
 
   <header class="bg-success text-white text-center py-4 shadow-sm">
@@ -25,7 +24,6 @@
     </div>
   </header>
 
-  
   <nav class="navbar navbar-expand-lg navbar-dark bg-success shadow-sm">
     <div class="container">
      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -38,6 +36,7 @@
           <li class="nav-item"><a class="nav-link" href="yerbasdespaladas.html">Yerbas Despaladas</a></li>
           <li class="nav-item"><a class="nav-link" href="yerbasconpalo.html">Yerbas Con Palo</a></li>
           <li class="nav-item"><a class="nav-link" href="consejos.html">Consejos Materos</a></li>
+          <li class="nav-item"><a class="nav-link" href="AgregarYerba.html">Yerbas</a></li>
           <li class="nav-item"><a class="nav-link" href="nosotros.html">Nosotros</a></li>
         </ul>
 
@@ -45,16 +44,21 @@
           <input id="buscador" class="form-control" type="search" placeholder="Buscar yerba..." aria-label="Buscar">
         </form>
 
-        <div class="ms-3">
+        <div class="ms-3 position-relative">
           <a href="carrito.html" class="text-white fs-4">
             <i class="bi bi-basket-fill"></i>
           </a>
+
+          <!-- Contador -->
+          <span id="cart-count" 
+                class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+            0
+          </span>
         </div>
       </div>
     </div>
   </nav>
 
-  
   <main class="container my-5">
     <div class="row g-4" id="productos">
       <p class="text-center text-muted">Cargando productos...</p>

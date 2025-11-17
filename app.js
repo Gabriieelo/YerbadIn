@@ -6,21 +6,21 @@ const airtableUrl = `https://api.airtable.com/v0/${baseId}/${tableName}`;
 
 const contenedor = document.getElementById("productos");
 
-function nombreAArchivo(nombre) {
-  return nombre
-    .normalize("NFD")              
-    .replace(/[\u0300-\u036f]/g, "") 
-    .replace(/\s+/g, "")           
-    + ".html";                     
+// -----------------------------
+// Función para actualizar contador
+// -----------------------------
+function actualizarContador() {
+  const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+  const contador = document.getElementById("cart-count");
+  if (contador) contador.textContent = carrito.length;
 }
 
+// -----------------------------
 async function cargarProductos() {
   try {
     const response = await fetch(airtableUrl, {
       headers: { Authorization: `Bearer ${airtableToken}` },
     });
-
-    if (!response.ok) throw new Error(`Error al obtener los productos: ${response.statusText}`);
 
     const data = await response.json();
     contenedor.innerHTML = "";
@@ -36,27 +36,74 @@ async function cargarProductos() {
             <div class="card-body">
               <h5 class="card-title">${Nombre}</h5>
               <p class="card-text">${Detalle || ""}</p>
-              <button class="btn btn-success me-2 ver-detalle" data-id="${record.id}">Ver</button>
-              <button class="btn btn-outline-secondary">Agregar al carrito</button>
+
+              <button class="btn btn-success me-2 ver-detalle" data-id="${record.id}">
+                Ver
+              </button>
+
+              <button 
+                class="btn btn-outline-secondary btn-agregar-carrito"
+                data-id="${record.id}"
+                data-nombre="${Nombre}"
+                data-imagen="${imagenUrl}"
+                data-detalle="${Detalle || ""}">
+                Agregar al carrito
+              </button>
             </div>
           </div>
         </div>
       `;
+
       contenedor.innerHTML += card;
     });
 
-    document.querySelectorAll(".ver-detalle").forEach((btn) => {
+    // EVENTO: Ver detalle
+    document.querySelectorAll(".ver-detalle").forEach((btn) =>
       btn.addEventListener("click", (e) => {
-        const id = e.target.getAttribute("data-id");
+        const id = e.target.dataset.id;
         localStorage.setItem("productoSeleccionado", id);
         window.location.href = "detalle.html";
-      });
-    });
+      })
+    );
+
+    actualizarContador();
 
   } catch (error) {
-    console.error(error);
-    contenedor.innerHTML = `<p class="text-danger">Ocurrió un error al cargar los productos.</p>`;
+    console.error("Error:", error);
+    contenedor.innerHTML = `<p class="text-danger">Error cargando productos.</p>`;
   }
 }
 
 cargarProductos();
+
+
+// -----------------------------
+// Manejo del carrito
+// -----------------------------
+let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+
+function guardarCarrito() {
+  localStorage.setItem("carrito", JSON.stringify(carrito));
+  actualizarContador();
+}
+
+document.addEventListener("click", (e) => {
+  if (e.target.classList.contains("btn-agregar-carrito")) {
+    
+    const id = e.target.dataset.id;
+    const nombre = e.target.dataset.nombre;
+    const imagen = e.target.dataset.imagen;
+    const detalle = e.target.dataset.detalle;
+
+    const existente = carrito.find(p => p.id === id);
+
+    if (existente) {
+      existente.cantidad++;
+    } else {
+      carrito.push({ id, nombre, imagen, detalle, cantidad: 1 });
+    }
+
+    guardarCarrito();
+    alert("Producto agregado al carrito 🧺");
+  }
+});
