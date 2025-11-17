@@ -1,4 +1,6 @@
-// === CONFIGURACIÓN DE AIRTABLE ===
+// ==================================================
+// CONFIGURACIÓN DE AIRTABLE
+// ==================================================
 const airtableToken = "patVhTGXMmBRjvBCK.f28a2d4af45d46b8a777e24ee48ddde443475a91d946a96f307661175073f672";
 const baseId = "app4MOjY3G8sHauiV";
 const tableName = "Productos";
@@ -6,17 +8,21 @@ const airtableUrl = `https://api.airtable.com/v0/${baseId}/${tableName}`;
 
 const contenedor = document.getElementById("productos");
 
-// -----------------------------
-// Función para actualizar contador
-// -----------------------------
+// ==================================================
+// CONTADOR DEL CARRITO
+// ==================================================
 function actualizarContador() {
   const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
   const contador = document.getElementById("cart-count");
   if (contador) contador.textContent = carrito.length;
 }
 
-// -----------------------------
+// ==================================================
+// CARGAR PRODUCTOS DINÁMICOS DESDE AIRTABLE
+// ==================================================
 async function cargarProductos() {
+  if (!contenedor) return; // evita error en carrito.html
+
   try {
     const response = await fetch(airtableUrl, {
       headers: { Authorization: `Bearer ${airtableToken}` },
@@ -57,7 +63,7 @@ async function cargarProductos() {
       contenedor.innerHTML += card;
     });
 
-    // EVENTO: Ver detalle
+    // VER DETALLE
     document.querySelectorAll(".ver-detalle").forEach((btn) =>
       btn.addEventListener("click", (e) => {
         const id = e.target.dataset.id;
@@ -76,10 +82,9 @@ async function cargarProductos() {
 
 cargarProductos();
 
-
-// -----------------------------
-// Manejo del carrito
-// -----------------------------
+// ==================================================
+// MANEJO DEL CARRITO (INDEX)
+// ==================================================
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
 function guardarCarrito() {
@@ -87,6 +92,7 @@ function guardarCarrito() {
   actualizarContador();
 }
 
+// AGREGAR AL CARRITO
 document.addEventListener("click", (e) => {
   if (e.target.classList.contains("btn-agregar-carrito")) {
     
@@ -105,5 +111,57 @@ document.addEventListener("click", (e) => {
 
     guardarCarrito();
     alert("Producto agregado al carrito 🧺");
+  }
+});
+
+// ==================================================
+// MOSTRAR CARRITO (CARRITO.HTML)
+// ==================================================
+function mostrarCarrito() {
+  const contenedorCarrito = document.getElementById("productosFavoritos");
+  if (!contenedorCarrito) return; // evita error en index.html
+
+  contenedorCarrito.innerHTML = "";
+
+  if (carrito.length === 0) {
+    contenedorCarrito.innerHTML = `
+      <p class="text-center text-muted">Tu carrito está vacío 🛒</p>
+    `;
+    return;
+  }
+
+  carrito.forEach((item, index) => {
+    const card = `
+      <div class="col-md-4">
+        <div class="card h-100 shadow-sm">
+          <img src="${item.imagen}" class="card-img-top" alt="${item.nombre}">
+          <div class="card-body">
+            <h5 class="card-title">${item.nombre}</h5>
+            <p class="card-text">${item.detalle}</p>
+            <p class="fw-bold">Cantidad: ${item.cantidad}</p>
+
+            <button class="btn btn-danger btn-eliminar" data-index="${index}">
+              Eliminar
+            </button>
+          </div>
+        </div>
+      </div>
+    `;
+    contenedorCarrito.innerHTML += card;
+  });
+}
+
+mostrarCarrito();
+
+// ==================================================
+// ELIMINAR PRODUCTO
+
+document.addEventListener("click", (e) => {
+  if (e.target.classList.contains("btn-eliminar")) {
+    const index = e.target.dataset.index;
+    carrito.splice(index, 1);
+
+    guardarCarrito();
+    mostrarCarrito();
   }
 });
