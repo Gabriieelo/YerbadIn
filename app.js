@@ -6,7 +6,6 @@ const airtableUrl = `https://api.airtable.com/v0/${baseId}/${tableName}`;
 
 const contenedor = document.getElementById("productos");
 
-// === Función para convertir el nombre en nombreDeArchivo.html ===
 function nombreAArchivo(nombre) {
   return nombre
     .normalize("NFD")              
@@ -46,7 +45,6 @@ async function cargarProductos() {
       contenedor.innerHTML += card;
     });
 
-    // Agregar eventos a los botones "Ver"
     document.querySelectorAll(".ver-detalle").forEach((btn) => {
       btn.addEventListener("click", (e) => {
         const id = e.target.getAttribute("data-id");
