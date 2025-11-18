@@ -106,9 +106,8 @@ document.addEventListener("click", (e) => {
   }
 });
 
-//s
+
 // mostrar carro
-// 
 function mostrarCarrito() {
   const contenedorCarrito = document.getElementById("productosFavoritos");
   if (!contenedorCarrito) return; 
@@ -145,7 +144,6 @@ function mostrarCarrito() {
 
 mostrarCarrito();
 
-// ==================================================
 // eliminar producto de l carro
 
 document.addEventListener("click", (e) => {

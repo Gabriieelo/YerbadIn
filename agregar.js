@@ -1,6 +1,4 @@
-// ===============================================
-// CONFIGURACIÓN DE AIRTABLE
-// ===============================================
+
 const API_KEY = "patVhTGXMmBRjvBCK.f28a2d4af45d46b8a777e24ee48ddde443475a91d946a96f307661175073f672"; 
 const BASE_ID = "app4MOjY3G8sHauiV";  
 const TABLE_NAME = "Productos"; 
@@ -8,9 +6,7 @@ const TABLE_NAME = "Productos";
 // URL base de la API de Airtable
 const AIRTABLE_URL = `https://api.airtable.com/v0/${BASE_ID}/${TABLE_NAME}`;
 
-// ===============================================
-// REFERENCIAS DEL DOM
-// ===============================================
+
 const yerbaContainer = document.getElementById('yerba-container');
 const crudModal = document.getElementById('crud-modal');
 const modalTitle = document.getElementById('modal-title');
@@ -32,10 +28,8 @@ const imagenTip = document.getElementById('imagen-tip');
  */
 function showStatus(message, type = 'success') {
     statusMessage.textContent = message;
-    // Eliminamos las clases de color y la clase 'hidden'
     statusMessage.classList.remove('hidden', 'bg-danger', 'bg-success');
     
-    // Usamos clases de color de Bootstrap
     if (type === 'success') {
         statusMessage.classList.add('bg-success');
     } else {
@@ -53,7 +47,7 @@ function showStatus(message, type = 'success') {
 }
 
 /**
- * Renderiza la tarjeta de "Añadir Nueva Yerba" al inicio.
+ * Añadir Nueva Yerba
  */
 function renderAddCard() {
     const addCardCol = document.createElement('div');
@@ -74,9 +68,9 @@ function renderAddCard() {
 }
 
 
-/**
- * Abre el modal de formulario para añadir una nueva yerba.
- */
+
+ //formulario para añadir una yerba.
+ 
 function openModal() {
     yerbaForm.reset();
     recordIdInput.value = '';
@@ -90,9 +84,6 @@ function openModal() {
     crudModal.classList.add('flex');
 }
 
-/**
- * Cierra el modal de formulario.
- */
 function closeModal() {
     crudModal.classList.remove('flex');
     crudModal.classList.add('hidden');
@@ -109,8 +100,8 @@ function handleModalClick(event) {
 }
 
 /**
- * Envía los datos del formulario a Airtable para crear un nuevo registro.
- * @param {Event} event - El evento de envío del formulario.
+ * Envía los datos a Airtable crea un nuevo registro.
+ * @param {Event} event 
  */
 async function saveYerba(event) {
     event.preventDefault();
@@ -121,16 +112,13 @@ async function saveYerba(event) {
     
     const fileInput = document.getElementById('imagen_input');
     let imagenData = null;
-    
-    // ==========================================================
-    // LÓGICA DE MANEJO DE IMAGEN (USANDO PLACEHOLDER URL)
-    // ==========================================================
+        // LÓGICA DE MANEJO DE IMAGEN (USANDO PLACEHOLDER URL)
+   
     if (fileInput.files.length > 0) {
         const fileName = fileInput.files[0].name;
 
         console.warn(`[ADVERTENCIA DE ARCHIVO] La imagen local "${fileName}" no se subirá. Se usará un PLACEHOLDER de URL para el registro.`);
         
-        // URL de placeholder con color similar al verde de Yerbadin
         const placeholderUrl = 'https://placehold.co/100x100/2e7d32/ffffff?text=YERBA';
 
         imagenData = [{ 
@@ -155,9 +143,7 @@ async function saveYerba(event) {
 
     const data = { fields: dataFields };
     
-    // ==========================================================
     // LÓGICA DE FETCH CON REINTENTOS
-    // ==========================================================
     try {
         const maxRetries = 3;
         let attempt = 0;
@@ -175,7 +161,7 @@ async function saveYerba(event) {
                 });
 
                 if (response.ok) {
-                    break; // Éxito
+                    break; 
                 }
                 
                 // Reintento para errores de servidor o throttling
@@ -189,7 +175,7 @@ async function saveYerba(event) {
                     }
                 }
                 
-                // Error de Entidad No Procesable (generalmente campos o adjuntos)
+                // Error de Entidad No Procesable 
                 if (response.status === 422) {
                     const errorBody = await response.json();
                     const errorMsg = errorBody.error ? errorBody.error.message : response.statusText;
@@ -201,14 +187,13 @@ async function saveYerba(event) {
                     throw new Error(`Error 422 (Entidad No Procesable). Detalles: ${errorMsg}`);
                 }
 
-                // Otros errores 4xx o falla en el último reintento
+                
                 throw new Error(`Error al guardar: ${response.status} - ${response.statusText}`);
 
             } catch (error) {
                 if (error.message.includes("Error al guardar") || error.message.includes("422") || attempt === maxRetries - 1) {
                     throw error;
                 }
-                // Si es un error temporal (5xx o 429), el bucle continuará al siguiente intento
             }
         }
         
@@ -225,7 +210,6 @@ async function saveYerba(event) {
         
         let errorMessage = error.message;
 
-        // Errores de API Key
         if (errorMessage.includes('401') || errorMessage.includes('403')) {
             errorMessage = "Error de autorización (401/403). Verifica tu API Key y permisos de la Base/Tabla.";
         } 

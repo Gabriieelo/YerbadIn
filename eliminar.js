@@ -59,18 +59,13 @@ function getImageUrl(record) {
 }
 
 
-// ===============================================
-// FUNCIONES DE RENDERIZADO Y CRUD
-// ===============================================
 
 /**
- * Renderiza la tarjeta de un producto con el botón de Eliminar.
- * Utiliza la estructura de card de Bootstrap que se ve en tu script.
- * @param {object} record - El registro de Airtable del producto.
+ * Renderiza la tarjeta un producto con botón de Eliminar.
+ * @param {object} record 
  */
 function renderProductCard(record) {
     const col = document.createElement('div');
-    // Usamos las clases que replican la estructura de tu carga de productos
     col.className = 'col-md-4 mb-4'; 
     
     const imageUrl = getImageUrl(record);
@@ -102,14 +97,13 @@ function renderProductCard(record) {
  * Carga todos los productos de Airtable y los muestra.
  */
 async function loadYerbas() {
-    // Aseguramos que el contenedor tiene las clases de row
     if (productosContainer) {
-        productosContainer.className = 'row g-4'; // Usamos g-4 para gap
+        productosContainer.className = 'row g-4'; 
     }
 
     productosContainer.innerHTML = '';
     loadingMessage.textContent = 'Cargando productos...';
-    loadingMessage.classList.remove('d-none'); // Mostrar mensaje de carga
+    loadingMessage.classList.remove('d-none'); 
 
     try {
         const response = await fetch(AIRTABLE_URL, {
@@ -141,9 +135,9 @@ async function loadYerbas() {
 }
 
 /**
- * Elimina un registro de Airtable.
- * @param {string} recordId - El ID del registro a eliminar.
- * @param {HTMLElement} buttonElement - El botón presionado (para deshabilitarlo).
+  //Elimina un registro de Airtable.
+  @param {string} recordId 
+  @param {HTMLElement} buttonElement 
  */
 async function deleteYerba(recordId, buttonElement) {
     if (!confirm('⚠️ Advertencia: ¿Estás seguro de que quieres eliminar este producto PERMANENTEMENTE? Esta acción no se puede deshacer.')) {
@@ -169,13 +163,12 @@ async function deleteYerba(recordId, buttonElement) {
             throw new Error(`Error al eliminar: ${response.status} - ${errorMsg}`);
         }
 
-        // Eliminación exitosa: eliminar la tarjeta del DOM
+        // eliminar la tarjeta del DOM
         const cardCol = buttonElement.closest('.col-md-4');
         cardCol.remove();
 
         showStatus(`✅ Producto eliminado con éxito (ID: ${recordId}).`, 'success');
 
-        // Verificar si no quedan productos
         if (productosContainer.querySelectorAll('.col-md-4').length === 0) {
             loadingMessage.textContent = 'No se encontraron yerbas para eliminar.';
             loadingMessage.classList.remove('d-none');
@@ -189,8 +182,4 @@ async function deleteYerba(recordId, buttonElement) {
     }
 }
 
-
-// ===============================================
-// INICIALIZACIÓN
-// ===============================================
 window.onload = loadYerbas;
