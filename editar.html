@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Editar Yerbas - Yerbadin</title>
+    <title>Editar Yerbas Yerbadin</title>
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
@@ -62,7 +62,53 @@
             <p class="text-center text-muted" id="loading-message">Cargando productos...</p>
         </div>
     </main>
+
+    <div class="modal fade" id="editProductModal" tabindex="-1" aria-labelledby="editProductModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-warning text-dark">
+                    <h5 class="modal-title fw-bold" id="editProductModalLabel">Editar Yerba: <span id="productNameInModal"></span></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="editProductForm">
+                        <input type="hidden" id="editRecordId"> 
+
+                        <div class="mb-3">
+                            <label for="editNombre" class="form-label">Nombre</label>
+                            <input type="text" class="form-control" id="editNombre" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="editDetalle" class="form-label">Detalle (Descripción corta de la tarjeta)</label>
+                            <textarea class="form-control" id="editDetalle" rows="2"></textarea>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="editDescripcion" class="form-label">Descripción (Detalle completo)</label>
+                            <textarea class="form-control" id="editDescripcion" rows="4"></textarea>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="editImagenUrl" class="form-label">URL de Imagen (Opcional)</label>
+                            <input type="url" class="form-control" id="editImagenUrl" placeholder="https://ejemplo.com/imagen.jpg">
+                            <small class="form-text text-muted">Ingresa una nueva URL para cambiar la imagen. Deja vacío para mantener la actual.</small>
+                        </div>
+
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-warning fw-bold" id="btnGuardarEdicion">
+                                <i class="bi bi-floppy-fill me-2"></i>Guardar Cambios
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
     
+    <div id="status-message" class="fixed p-3 rounded text-white fw-medium shadow-lg opacity-0 transition-opacity duration-300 hidden" 
+         style="position: fixed; bottom: 1.25rem; right: 1.25rem; z-index: 1050;"></div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 

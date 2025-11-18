@@ -5,7 +5,6 @@ const TABLE_NAME = "Productos";
 const AIRTABLE_URL = `https://api.airtable.com/v0/${BASE_ID}/${TABLE_NAME}`;
 
 const productosContainer = document.getElementById('productos-container'); 
-
 const loadingMessage = document.getElementById('loading-message');
 const statusMessage = document.getElementById('status-message');
 
@@ -13,21 +12,16 @@ const editProductModal = new bootstrap.Modal(document.getElementById('editProduc
 const editForm = document.getElementById('editProductForm');
 const editRecordId = document.getElementById('editRecordId');
 const editNombre = document.getElementById('editNombre');
-// ... el resto de las referencias DOM son correctas.
 const editDetalle = document.getElementById('editDetalle');
 const editDescripcion = document.getElementById('editDescripcion');
 const editImagenUrl = document.getElementById('editImagenUrl');
 const btnGuardarEdicion = document.getElementById('btnGuardarEdicion');
 
 
-// ===============================================
-// FUNCIONES DE UTILIDAD (Adaptadas de tu código)
-// ===============================================
+// FUNCIONES DE UTILIDAD
 
 /**
  * Muestra un mensaje de estado (éxito o error) en la esquina inferior derecha.
- * @param {string} message - El mensaje a mostrar.
- * @param {string} [type='success'] - El tipo de mensaje ('success' o 'error').
  */
 function showStatus(message, type = 'success') {
     statusMessage.textContent = message;
@@ -38,7 +32,6 @@ function showStatus(message, type = 'success') {
     statusMessage.classList.remove('opacity-0');
     statusMessage.classList.add('opacity-100');
     
-    // Oculta el mensaje después de 3.5 segundos (ajustado para ser consistente con el tuyo)
     setTimeout(() => {
         statusMessage.classList.remove('opacity-100');
         statusMessage.classList.add('opacity-0');
@@ -58,14 +51,10 @@ function getImageUrl(record) {
     return defaultImage;
 }
 
-
-// ===============================================
-// LÓGICA DE EDICIÓN
-// ===============================================
+//edicion
 
 /**
  * Maneja el clic en "Editar Producto": obtiene datos, precarga el modal y lo muestra.
- * @param {string} recordId - El ID del registro de Airtable.
  */
 async function handleEditClick(recordId) {
     showStatus('Cargando datos del producto...', 'success');
@@ -82,23 +71,18 @@ async function handleEditClick(recordId) {
         const data = await response.json();
         const fields = data.fields;
 
-        // 1. Precargar los campos del formulario
         editRecordId.value = recordId;
         document.getElementById('productNameInModal').textContent = fields.Nombre || 'Producto';
         editNombre.value = fields.Nombre || '';
         editDetalle.value = fields.Detalle || '';
         editDescripcion.value = fields.Descripcion || '';
         
-        // Obtener la URL de la imagen actual (si existe) para mostrarla opcionalmente
         const currentImageUrl = getImageUrl(data);
-        // Si no es el placeholder, se muestra la URL para que el usuario pueda verla/cambiarla
         editImagenUrl.value = (currentImageUrl !== "placeholder.jpg") ? currentImageUrl : '';
 
-        // Ocultar el mensaje de carga antes de mostrar el modal
         statusMessage.classList.remove('opacity-100');
         statusMessage.classList.add('opacity-0', 'hidden');
 
-        // 2. Mostrar el modal
         editProductModal.show();
         
     } catch (error) {
@@ -108,30 +92,24 @@ async function handleEditClick(recordId) {
 }
 
 /**
- * Maneja el envío del formulario de edición y realiza la solicitud PATCH a Airtable.
+ //Maneja el envío del formulario de edición y realiza la solicitud PATCH a Airtable.
  */
 editForm.addEventListener('submit', async (e) => {
     e.preventDefault();
 
     const idToUpdate = editRecordId.value;
     
-    // Campos que se van a actualizar
     const updatedFields = {
         "Nombre": editNombre.value,
         "Detalle": editDetalle.value,
         "Descripcion": editDescripcion.value,
     };
 
-    // Lógica para actualizar la imagen solo si se proporcionó una nueva URL
     const newImageUrl = editImagenUrl.value.trim();
     if (newImageUrl) {
-        // Airtable espera un array de objetos para el campo de archivos adjuntos
         updatedFields["Imagen"] = [{ url: newImageUrl }];
     } else {
-        // Si el campo de URL se vació, eliminamos la referencia de imagen en Airtable 
-        // (Nota: Esto elimina la imagen del registro. Para mantenerla, el usuario debe dejar el campo con la URL actual).
-        // Si el usuario vació el campo, probablemente quiere remover la imagen.
-        // Alternativamente, podrías no enviar el campo 'Imagen' si no cambió. Lo dejaremos así para permitir la remoción.
+        updatedFields["Imagen"] = []; 
     }
 
 
@@ -157,7 +135,6 @@ editForm.addEventListener('submit', async (e) => {
         showStatus('✅ Producto actualizado con éxito.', 'success');
         editProductModal.hide(); 
         
-        // Recargar la lista para que la tarjeta editada muestre los nuevos datos
         loadYerbas(); 
 
     } catch (error) {
@@ -170,13 +147,8 @@ editForm.addEventListener('submit', async (e) => {
 });
 
 
-// ===============================================
-// CARGA DE PRODUCTOS EN LISTADO
-// ===============================================
+// CARGA DE PRODUCTOS 
 
-/**
- * Renderiza la tarjeta de un producto con el botón de Editar.
- */
 function renderProductCard(record) {
     const col = document.createElement('div');
     col.className = 'col-md-4 mb-4'; 
@@ -203,7 +175,6 @@ function renderProductCard(record) {
         </div>
     `;
 
-    // Agregamos el listener al botón usando el data-id para abrir el modal
     const editButton = col.querySelector('.btn-editar');
     editButton.addEventListener('click', () => handleEditClick(recordId));
 
@@ -211,7 +182,7 @@ function renderProductCard(record) {
 }
 
 /**
- * Carga todos los productos de Airtable y los muestra.
+ // Carga todos los productos de Airtable y los muestra.
  */
 async function loadYerbas() {
     productosContainer.innerHTML = '';
@@ -225,6 +196,9 @@ async function loadYerbas() {
         });
 
         if (!response.ok) {
+            if (response.status === 401 || response.status === 403) {
+                 throw new Error(`Error de Autenticación (${response.status}). Revisa la API KEY y permisos.`);
+            }
             throw new Error(`Error al obtener datos: ${response.statusText}`);
         }
 
@@ -245,8 +219,4 @@ async function loadYerbas() {
     }
 }
 
-
-// ===============================================
-// INICIALIZACIÓN
-// ===============================================
 window.onload = loadYerbas;
