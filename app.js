@@ -6,6 +6,7 @@ const airtableUrl = `https://api.airtable.com/v0/${baseId}/${tableName}`;
 const contenedor = document.getElementById("productos");
 
 
+// CONTADOR DEL CARRITO
 function actualizarContador() {
   const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
   const contador = document.getElementById("cart-count");
