@@ -1,6 +1,3 @@
-// ==================================================
-// CONFIGURACIÓN DE AIRTABLE
-// ==================================================
 const airtableToken = "patVhTGXMmBRjvBCK.f28a2d4af45d46b8a777e24ee48ddde443475a91d946a96f307661175073f672";
 const baseId = "app4MOjY3G8sHauiV";
 const tableName = "Productos";
@@ -8,20 +5,16 @@ const airtableUrl = `https://api.airtable.com/v0/${baseId}/${tableName}`;
 
 const contenedor = document.getElementById("productos");
 
-// ==================================================
-// CONTADOR DEL CARRITO
-// ==================================================
+
 function actualizarContador() {
   const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
   const contador = document.getElementById("cart-count");
   if (contador) contador.textContent = carrito.length;
 }
 
-// ==================================================
-// CARGAR PRODUCTOS DINÁMICOS DESDE AIRTABLE
-// ==================================================
+// carga de productos dinamicos desde airtable
 async function cargarProductos() {
-  if (!contenedor) return; // evita error en carrito.html
+  if (!contenedor) return; 
 
   try {
     const response = await fetch(airtableUrl, {
@@ -63,7 +56,7 @@ async function cargarProductos() {
       contenedor.innerHTML += card;
     });
 
-    // VER DETALLE
+    
     document.querySelectorAll(".ver-detalle").forEach((btn) =>
       btn.addEventListener("click", (e) => {
         const id = e.target.dataset.id;
@@ -82,9 +75,7 @@ async function cargarProductos() {
 
 cargarProductos();
 
-// ==================================================
-// MANEJO DEL CARRITO (INDEX)
-// ==================================================
+
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
 function guardarCarrito() {
@@ -92,7 +83,7 @@ function guardarCarrito() {
   actualizarContador();
 }
 
-// AGREGAR AL CARRITO
+// agsreggar al carrito
 document.addEventListener("click", (e) => {
   if (e.target.classList.contains("btn-agregar-carrito")) {
     
@@ -114,12 +105,12 @@ document.addEventListener("click", (e) => {
   }
 });
 
-// ==================================================
-// MOSTRAR CARRITO (CARRITO.HTML)
-// ==================================================
+//s
+// mostrar carro
+// 
 function mostrarCarrito() {
   const contenedorCarrito = document.getElementById("productosFavoritos");
-  if (!contenedorCarrito) return; // evita error en index.html
+  if (!contenedorCarrito) return; 
 
   contenedorCarrito.innerHTML = "";
 
@@ -154,7 +145,7 @@ function mostrarCarrito() {
 mostrarCarrito();
 
 // ==================================================
-// ELIMINAR PRODUCTO
+// eliminar producto de l carro
 
 document.addEventListener("click", (e) => {
   if (e.target.classList.contains("btn-eliminar")) {
